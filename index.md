@@ -24,7 +24,7 @@ Syntax highlighted code block
 [Link](url) and ![Image](src)
 ```
 
-[Bowser](https://trduarte.github.io/TEM-IIN-002/index.md)
+[Bowser](https://trduarte.github.io/TEM-IIN-002/bowser.md)
 
 ### Support or Contact
 
