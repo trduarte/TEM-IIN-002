@@ -52,34 +52,11 @@ for (i=0;i<nomes.length;i++){
 }
  */
 
-// Valide se o texto informado pelo usuário seria uma e-mail valido.
-let usuario = {
-    nome: "Chiquin",
-    milhas: 12365,
-    log_acao: ""
+function randomize(){
+    return Math.floor(Math.random()*100)
 }
-let valor;
-let logoff = false
 
-for(;logoff==false;){
-    switch(prompt("digite a ação desejada: COMPRAR VENDER SAIR")){
-        case "COMPRAR":
-            valor = prompt("Digite o valor da compra")
-            usuario.milhas += valor
-            log_acao = "comprou " + valor +" em milhas"
-            break
-        case "VENDER":
-            usuario.milhas += valor
-            log_acao = "vendeu " + valor +" em milhas"
-            break
-        default:
-            logoff=true
-    }
-
-}
-console.log(usuario.log_acao)
-
-
+var num1=randomize(), num2=randomize(), num3=randomize()
 
 
 // Validação de CPF
