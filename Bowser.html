@@ -4,10 +4,89 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P1</title>
+    <title>P1- Bowser Challenges</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body onload="validasenha()">
-    <div id="senha"></div>
+<body>
+    <!-- HEADER -->
+    <div id="h-wrap">
+        <div id="h-inner">  
+            <h1>P1 - Prog. Client-Side</h1>
+            <img src="assets/media/Bowser.png" class="foot_img">
+        </div>        
+    </div>
+    <!-- MAIN -->
+    <div id="m-wrap">
+        <ul><h2>Instruções</h2>
+            <h3><li>Para realizar a prova você utilizará apenas o VsCOde e esta página da Internet juntamente com as ferramentas de desenvolver do próprio navegador, acessadas através da tecla F12 do seu teclado. </li>
+            <li>A prova será composta por 5 desafios, sendo o último um bonus que não contabiliza perda de pontos, mas que pode dar 0.5 pontos permanentemente se conclúido com sucesso.</li>
+            <li>Cada desafio será explicado em sua própria seção.</li>
+            <li>As Entradas(variáveis seus respectios valores) serão geradas pelo "Sistema". Você poderá consultá-las e manipulá-las pela console e também poderá gerar novas entradas para teste, clicando nos botões que aparecerão ao longo da Prova.</li>
+            <li>Está Liberado APENAS a Consulta do guia de referencia JS do <a href= "https://www.w3schools.com/js/">W3C Schools</a> e dos exercícios realizados em Sala de aula para auxiliar com a sintaxe dos comandos.</li>
+            <li>Salve os códigos utilziados para solução de cada desafio. Eles precisarão ser enviados ao final da prova para contabilização das notas. O arquivo em JS contendo todos os códigos deverão ser enviados pelo Classroom.</li>
+            <li>Mantenha a calma e quando estiver preparada(o) clique nos desafios para abrir os respectivos enunciados!</li></h3>
+        </ul>
+        <div id="m-inner">
+        </div>
+        <div id="questions_tab"> 
+            <!-- Tab links -->
+            <div class="tab">
+              <button class="tablinks" onclick="loadq(event, 'D1')">Desafio 1</button>
+              <button class="tablinks" onclick="loadq(event, 'D2')">Desafio 2</button>
+              <button class="tablinks" onclick="loadq(event, 'D3')">Desafio 3</button>
+              <button class="tablinks" onclick="loadq(event, 'D4')">Desafio 4</button>
+              <button class="tablinks" onclick="loadq(event, 'D5')">Desafio 5</button>
+            </div>
+            
+            <!-- Tab content -->
+            <div id="D1" class="tabcontent">
+              <h3>Maior e Menor [Penalidade Max: -0,5]</h3>
+              <p>São dadas 3 váriaveis: <b>num1, num2, num3</b>. Essas variáveis recebem do sitema números inteiros aleatórios entre 0 e 99. Sua função aqui é descobrir o maior e o menor número e mostrá-los na console. <b>ATENÇÃO:</b> o código deve ser solução para quaiquers combinações de números, independente de qual variável tenha o maior ou o menor número.</p>
+              <button class="gerar" onclick="randomize('D1')">Gerar Inputs</button>
+            </div>
+            
+            <div id="D2" class="tabcontent">
+              <h3>Lista de Clientes + Idade [Penalidade Max: -0,75]</h3>
+              <p>O Sistema retorna uma lista de clientes(vetor declarado como var <b>nomes</b>) e uma lista do ano de nascimento de cada um dos clientes (var <b>idades</b>). Porém o programador back-end, que não fez SENAI, acabou guardando o ano de nascimento de maneira invertida, ou seja, o ano de nascimento do primeiro cliente listado na variável nomes está guardada no ultimo índice da variavel idades(Veja exemplo abaixo.). 
+            Para concluir essa etapa você precisa listar o nome de cada cliente e sua idade correta em anos, Além de informar se o cliente é maior <b>ou</b> menor de idade. A saída da console deverá ser parecida com o seguinte: "O cliente 'nome_do_cliente' tem 'idade_do_cliente' anos e é de Maior".<br><b><u>OBS: As variaveis precisam ser inicializadas. Clique no botão gerar Input antes de verificar o valor delas na console</u></b>
+            </p>
+            <img src="assets/media/vetor.png" title="Nesse exemplo a idade de juliana(indice 0) estaria no índice 3 do vetor idades">
+            <button class="gerar" onclick="randomize('D2')">Gerar Inputs</button>
+            </div>
+            
+            <div id="D3" class="tabcontent">
+              <h3>Verificar User e senha [Penalidade Max: -0,5]</h3>
+              <p>Há 2 variaveis: <b>userid</b> e <b>passwd</b>. Ambas são strings. Você precisa verificar se os valores informados passam ou não em um teste simples individual para cada uma.<br>
+            A variável <b>userid</b> passa no teste se não possuir nenhum caractere especial.<br>Já <b>passwd</b> não pode possuir <b>'(aspas simples)</b> e precisa ter mais de 5 caracteres. Porém, caso passwd possua ' (aspas simples), ao invés de invalidar o teste, substitua as '(aspas simples) por #(hashtag). Ao final mostre se os valores passaram ou não no teste.</p>
+            <button class="gerar" onclick="randomize('D3.1')">Gerar userid</button> 
+            <button class="gerar" onclick="randomize('D3.2')">Gerar passwd</button>
+            </div> 
+            <div id="D4" class="tabcontent">
+                <h3>Valida CPF - [Penalidade Max: -1,25]</h3>
+                <p>Praticamente todo sistema que registra usuários pede que seja inserido um CPF. No de vocês não seria difente não é mesmo :)?. Porém, como o Programador Back-End já c4g@u no Desafio 2, vocÊs não querem deixar essa função para ele e vocês mesmos farão a validação antes de mandar a informação adiante!<br>
+                Para validar um CPF basta seguir a receita da Receita: <br>
+                <b>Passo 1:</b><br>
+                Invalide qualquer CPF composto por números repetidos em sequencia. (ex: 11111111111,22222222222,etc...)
+                <br><b>Passo 2:</b><br>
+                Se o passo anterior for validado, Multiplica-se os 9 primeiros dígitos pela sequência decrescente de números de 10 à 2, somando os resultados das multiplicações. Exemplo: n1*10 + n2*9 + n3*8+...n8*3 + n9*2. Pegue o resultado da soma e divida por 11 e guarde o resto dessa divisão. Agora subtraia 11 pelo valor do resto da divisão feita anteriormente e compare com o 10º digito do CPF. Se eles forem iguais avance para o próximo passo. Caso contrário invalide o CPF.
+                <b><br>Detalhe importante:</b> se o resto da divisão for menor que 2 não é necessário fazer a subtração, apenas considere que o valor do resto é igual 0 e faça a comparação com o 10º digito do CPF.<br>
+                <b>Passo 3:</b><br>
+                Repita o processo de soma e multiplicação anterior, porém utilize os 10 primeiros digitos e comece a multiplicação com 11. Ex: n1*11 + n2*10 + n3*9+...n9*3 + n10*2. Some o resultados das multiplicações, divida por 11, pegue o resto e compare com o 11º digito. Se forem iguais significa que o CPF é valido. Lembre-se de manter a mesma premissa de que se o resto for 2 vocês devem considerar o resto como 0.
+                </p>
+                <button class="gerar" onclick="randomize('D4.1')">CPF válido</button> 
+                <button class="gerar" onclick="randomize('D4.0')">CPF inválio</button>
+              </div>
+            <div id="D5" class="tabcontent">
+                <h3>Bugue o Sistema :) [Bonus +0,5] </h3>
+                <span id="ops"><p>Para finalizar este desafio basta clicar no botão abaixo e inserir a palavra passe que está escrita no quadro!</p></span>
+                <button class="gerar" onclick="checkpalavra()">Completar</button>
+            </div>
+        </div>
+    </div>
+    <!-- FOOT -->
+    <div id="f-wrap">
+      
+    </div>
     
 </body>
 <script src="scripts.js"></script>

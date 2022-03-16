@@ -1,87 +1,143 @@
-//5 - Para poder finalizar o desafio é preciso informar uma senha adquirida ao derrotar Bowser. Porém o sistema foi programado para modificar a senha assim que você digita-la e apertar OK. Você deve pensar numa maneira de impedir que o sistema atribua um novo valor a variavel declarada como var senha, e assim modofique a variael. 
-// Dica? lembre dos conceitos de declação de variável com let, var e const.
 
+let num1=Math.floor(Math.random()*100),num2=Math.floor(Math.random()*100),num3=Math.floor(Math.random()*100);
 
-/* function validasenha(){
-    try{
-        senha = prompt("digite a senha");
-        senha = "#jbsjas"
+const namelist = ["Jhonny", "Yuna", "Pedro", "Agatha","Cleiton","Paula","Joaquim","Kleston","Fred"]
+const yearlist = [2000,1999,1987,1990,2005,2003,1980,1994,2001,1984]
+var nomes = Array(5)
+var idades = Array(5)
+let userid = getvalue(1)
+let passwd = getvalue(0)
+let CPF = geracpf(1)
+let clicks =0
+
+function loadq(evt, desafio) {
+
+    var tabcontent, tablinks;
+  
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (let i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
     }
-    catch(e){
-        if (e instanceof TypeError){
-            alert("O Sistema não conseguiu alterar a senha. Procedendo com o comportamento normal")
+  
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (let i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+  
+
+    document.getElementById(desafio).style.display = "block";
+    evt.currentTarget.className += " active";
+} 
+
+function randomize(btn){
+    switch(btn){
+        case "D1":
+            num1=Math.floor(Math.random()*100)
+            num2=Math.floor(Math.random()*100)
+            num3=Math.floor(Math.random()*100)
+            break;
+        case "D2":
+            for(let i= 0;i<nomes.length;i++){
+                nomes[i]= namelist[Math.floor(Math.random()*namelist.length)]
+                idades[i]= yearlist[Math.floor(Math.random()*namelist.length)]
+            }
+            break;
+        case "D3.1":
+            userid = getvalue(1)
+            break
+        case "D3.2":
+            passwd = getvalue(0)
+            break
+        case "D4.1":
+            CPF = geracpf(1)
+            break
+        case "D4.0":
+            CPF = geracpf(0)
+            break
+
+    } 
+}
+function getvalue(key) {
+    let len = Math.floor(Math.random() * (16 - 3)) + 3
+    var chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJLMNOPQRSTUVWXYZ!@#$%^&*()+?><.:{}[]";
+    var passwordLength = len;
+    var conteudo = "";
+    for (let i = 0; i < passwordLength; i++) {
+        if(len<3) len +=2
+        var randomNumber = Math.floor(Math.random() * chars.length);
+        conteudo += chars.substring(randomNumber, randomNumber + 1);
+    }
+    if (key == 1){
+        return conteudo.toLowerCase()
+    }else{
+        return conteudo
+    }  
+}
+function geracpf(tipo){
+    var fpc = "0123456789"
+    var somafpc=0
+    var cpfinal =""
+    if (tipo){
+        for(let i = 1;i<=9;i++){
+            var rdn = Math.floor(Math.random() * fpc.length)
+            cpfinal+= fpc.substring(rdn, rdn + 1)
+            somafpc += parseInt(fpc.substring(rdn, rdn + 1))*(11-i);
         }
-    }
-    if(senha=="Teste"){
-        alert("Parabens vc completou o desafio")
+        if(somafpc%11<2){
+            cpfinal+=0
+        }else{
+            cpfinal+= (11 -(somafpc%11))
+        }
+        somafpc=0
+        for(let i = 1;i<=10;i++){
+            somafpc += parseInt(cpfinal.substring(i-1, i))*(12-i);
+        }
+        if(somafpc%11<2){
+            cpfinal+=0
+        }else{
+            cpfinal+= (11 -(somafpc%11))
+        }
+        return cpfinal
     }else{
-        alert("A senha " + senha+ " é invalida. Por favor insira a senha correta clique no botão para tentar de novo ")
-        document.getElementById("senha").innerHTML = "<button onclick='validasenha()'>Tente novamente</button"
+        for(let i = 1;i<=11;i++){
+            var rdn = Math.floor(Math.random() * fpc.length)
+            cpfinal+= fpc.substring(rdn, rdn + 1)
+            if(i<=9){
+                somafpc += parseInt(fpc.substring(rdn, rdn + 1))*(11-i);
+            }
+        }
+        if(parseInt(cpfinal.substring(9,10))==11-(somafpc%11))
+            cpfinal[9]=(cpfinal[9]+100)%3
+        return cpfinal
+    } 
+}  
+function checkpalavra(){
+    clicks +=1
+    try{
+        palavra = prompt("Digite a palavra-passe","TurmaLinda")
+        palavra = "VARAIAL ALTERADA :D"
+    }catch(e){
+        if (e instanceof TypeError){
+            alert("ERRO: O Sistema não conseguiu alterar a palavra passe. Finalizando o Desafio!")
+        } 
     }
-} */
-
-
-// Descobrir entre tres numeros aleatórios quem é o maior e o menor e mostra-los na console
-/* var num1= 2, num2 = 3, num3= 1;
-var maior, menor;
-if(num1>num2){
-    maior= num1;
-    menor = num2;
-}else{
-    maior = num2;
-    menor = num1;
-}
-if (maior<num3){
-    maior = num3
-}else if( menor>num3){
-    menor= num3;
-}
-console.log("numero maior= "+maior+"\n"+"numero menor= "+menor+"\n") */
-
-
-// Mostar nomes dos clientes junto com suas respectivas idades. POrém o programador salvou as idades em ordem descrescente no banco.
-// o código tem que funcionar indepedente do tamnanho da minha lista de clientes.
-/* var nomes = ["José", "Luana","Ricardo", "Cláudia","Jennifer"]
-var idades = [1997,2008,1998,1990,1985]
-var j= idades.length
-var anos = new Date().getFullYear()
-for (i=0;i<nomes.length;i++){
-    let idade_real = anos - idades[j-1];
-    console.log(nomes[i]+" tem "+ idade_real+" anos")
-    j--
-}
- */
-
-function randomize(){
-    return Math.floor(Math.random()*100)
-}
-
-var num1=randomize(), num2=randomize(), num3=randomize()
-
-
-// Validação de CPF
-
-/* var cpf = "12345678909"
-var somaval=0, multiplier=10;
-var resposta =""
-for (dig=0;dig<cpf.length-2;dig++){
-    somaval += cpf[dig]*multiplier
-    multiplier--
-}
-if((somaval*10)%11 == cpf[9] || (somaval*10)%11 == cpf[9]+10 || (somaval*10)%11 == cpf[9]+11){
-    multiplier=11;
-    somaval=0;
-    for(dig=0;dig<cpf.length-1;dig++){
-        somaval += cpf[dig]*multiplier
-        multiplier--
-    }
-    if((somaval*10)%11 == cpf[10] || (somaval*10)%11 == cpf[10]+10 || (somaval*10)%11 == cpf[10]+11) {
-        resposta = "CPF "+ cpf +" é valido!\n"
+    if(palavra=="TurmaLinda"){
+        alert("PARABENS VOCÊS COMPLETARAM O DESAFIO! :)")
     }else{
-        resposta = "CPF "+ cpf +" é invalido!\n"
+        if(clicks<=1){
+            document.getElementById("ops").innerHTML = "OPS! Tava fácil demais :<. O JS do site está atribuindo um valor novo para a variavel <b>palavra</b> que recebe a palavra-passe quando você digita. \n Insira uma única linha de comando na console e faça com que não seja mais possível alterar a alteração do conteudo da variável e assim complete o desafio!!!.\n Depois que inserir o comando na console aperte enter e clique novamente no botão abaixo.<br><br>"
+        }else if(clicks < 5){
+            document.getElementById("ops").innerHTML = "hum hum Também não foi dessa vez! <br>Você tentou apenas " + clicks + " vezes! Tentei mais. Confio em você :)<br>"
+        }
+        else{
+            document.getElementById("ops").innerHTML = "hum hum Também não foi dessa vez! <br>Você tentou apenas " + clicks + " vezes! Tentei mais. Confio em você :)<br> <br><b>DICA:</b>Se você tentou redeclarar a variavel palavra usando let você quase acertou! Porém, vc vai ter que atualizar a página para tentar novamente e conseguir concluir o desafio já que o comando let não permite vc redeclarar variáveis com o mesmo nome, mas  permite a atribuições de valores novos<br><br>"
+        } 
+        
     }
-}else{
-    resposta = "CPF "+ cpf +" é invalido!\n"
 }
-console.log(resposta)
- */
+function reload(){
+    location.reload
+}
+
