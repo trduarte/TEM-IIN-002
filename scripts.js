@@ -61,7 +61,7 @@ function randomize(btn){
 }
 function getvalue(key) {
     let len = Math.floor(Math.random() * (16 - 3)) + 3
-    var chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJLMNOPQRSTUVWXYZ!@#$%^&*()+?><.:{}[]";
+    var chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJLMNOPQRSTUVWXYZ!@#$%^&*()+?><.:'{}[]";
     var passwordLength = len;
     var conteudo = "";
     for (let i = 0; i < passwordLength; i++) {
