@@ -64,10 +64,10 @@
             
             <div id="D2" class="tabcontent">
               <h3>Simulação de Cadastro [Penalidade Max: -1,5]</h3>
-              <p>Vamos simular a realização e visualização de cadastros. Para fazer um cadastro é necessário preenhcer os campos abaixo e clicar no botão <b>cadastrar</b> que chama uma função com mesmo nome e que salvará os dados em um objeto declarado <b>const cadastro</b>. Este objeto é um <b>vetor(Array)</b> de cadastros onde cada índice tem como valor os atributos "usuario", "data_nasc" e "telefone". Para visualizar os cadastros o botão <b>visualizar</b> chama uma outra função que deve mostrar na tag "span id=visualiza" os valores salvos na constante cadastro. <br><b>INFORMAÇÕES IMPORTANTES:</b><br>* Os valores só devem ser cadastrados se os campos não estiverem vazios<br>*O campo telefone deve permitir apenas números e deve ter o formato (XX)XXXXX-XXXX.<br>
-              Você precisará criar 1 função adicional para validar o campo telefone(<b>valida_tel</b>) a função está atreladas ao evento onkeypress da caixa de texto telefone.
-              <br>Ao finalizar um cadastro com sucesso, você pode chamar a função pre-existente <b>gera_cadastro()</b>, que cria um novo registro em branco e aumenta o tamanho do vetor em 1 automaticamente. Usar esta função é opcional.
-              <br>*Para mostrar os valores é preciso usar um for e ler todos os índices do vetor cadastro. A impressão na tela é muito similar ao que já fizemos no exercicio da tabuada, porém você precisa mostrar na tag span ao invés de utilizar o console.log. <b>DICA:</b> É possível variável acumuldora de textos.
+              <p>Vamos simular a realização e visualização de cadastros. Para fazer um cadastro é necessário preenhcer os campos abaixo e clicar no botão <b>cadastrar</b> que chama uma função com mesmo nome e que salvará os dados em um objeto declarado <b>const cadastro</b>. Este objeto é um <b>vetor(Array)</b> de cadastros onde cada índice tem como valor os atributos "usuario", "data_nasc" e "telefone". Para visualizar os cadastros existe o botão <b>visualizar</b>,que por sua vez chama uma outra função que deve mostrar na tag "span id=visualiza" os valores salvos na constante cadastro. <br><b>INFORMAÇÕES IMPORTANTES:</b><br>* Os valores só devem ser cadastrados se os campos não estiverem vazios<br>*O campo telefone deve permitir apenas números e deve ter o formato (XX)XXXXX-XXXX.<br>
+              Você precisará criar 1 função adicional para validar o campo telefone(<b>valida_tel</b>), a função está atrelada ao evento onkeypress da caixa de texto telefone.
+              <br>Ao finalizar um cadastro com sucesso, você pode chamar a função pre-existente <b>gera_cadastro()</b>, que cria um novo registro em branco e aumenta o tamanho do vetor em 1 automaticamente. Usar esta função é totalmente opcional.
+              <br>*Para mostrar os valores é preciso usar um for e ler todos os índices do vetor cadastro. A impressão na tela é muito similar ao que já fizemos no exercicio da tabuada, porém você precisa mostrar na tag span ao invés de utilizar o console.log. <b>DICA:</b> Crie uma variavel para guardar todo o texto antes de mostrá-lo na tag span. exemplo de variável acumuladora: var x=""; x+=" texto \n"( \n é um comando especial para quebrar a linha - mesma coisa que adicionar um enter).
             </p>
             <div id="cad_container">
               <span>usuario</span>
@@ -83,7 +83,7 @@
         </div>
         <div id="D3" class="tabcontent">
           <h3>Tempo de Login [Penalidade Max: -0,75]</h3>
-          <p>A ideia desse desafio é reproduzir um timeout de login, ou seja quando o tempo chegar a 0 o usuario seria desconectado do sistema por inatividade. O temporizador mostrado abaixo está inativo, utilizando o recurso *setInterval* mostre a contagem regressiva em tempo real.<br>Não é obrigatório, mas caso precise você pode utilizar o botão para chamar sua função.</p>
+          <p>A ideia desse desafio é reproduzir um timeout de login, ou seja quando o tempo chegar a 0 o usuario seria desconectado do sistema por inatividade. No nosso caso vamos apenas criar o temporizados. O temporizador mostrado abaixo está inativo, utilizando o recurso *setInterval* mostre a contagem regressiva em tempo real.<br> use as variáveis minutos e segundos já criadas no sistema. Seus valores iniciais são respectivametne 4 e 59.<br>Não é obrigatório, mas caso precise você pode utilizar o botão para chamar sua função.</p>
           <div class="temporizador">
             <span id="minutos" class="temporizador">00</span><span id="segundos" class="temporizador">00</span>
           </div>
