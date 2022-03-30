@@ -101,7 +101,7 @@
           <b>Passo 3:</b><br>
           Repita o processo de soma e multiplicação anterior, porém utilize os 10 primeiros digitos e comece a multiplicação com 11. Ex: n1*11 + n2*10 + n3*9+...n9*3 + n10*2. Some o resultados das multiplicações, divida por 11, pegue o resto e compare com o 11º digito. Se forem iguais significa que o CPF é valido. Lembre-se de manter a mesma premissa de que se o resto for 2 vocês devem considerar o resto como 0.
           </p>
-          <input id="cpf" maxlength=11 type="text" class="formata"><button id="validar" class="formata" onclick="validarcpf()">VALIDAR CPF</button><span id="mostra_cpf" class="formata">Aqui aparecerá se o CPF é válido ou não!</span><br>
+          <input id="cpf" onkeypress="checa_caractere(event)" maxlength=11 type="text" class="formata"><button id="validar" class="formata" onclick="validarcpf()">VALIDAR CPF</button><span id="mostra_cpf" class="formata">Aqui aparecerá se o CPF é válido ou não!</span><br>
           <input id="exemplo" disabled type="text" class="formata"><button class="formata" onclick="geracpf(1)">CPF válido</button><button class="formata" onclick="geracpf(0)">CPF inválio</button>
         </div>
     </div>
