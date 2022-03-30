@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2- PEGASUS Challenges</title>
+    <link rel="stylesheet" href="assets/css/p2.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <div id="h-wrap">
+        <div id="h-inner">  
+            <h1>P2 - Prog. Client-Side</h1>
+            <img src="assets/media/pegasus.png" class="foot_img">
+        </div>        
+    </div>
+    <!-- MAIN -->
+    <div id="m-wrap">
+        <ul><h2>Instruções</h2>
+            <h3><li>Para realizar a prova você utilizará apenas o VsCOde e esta página da Internet juntamente com as ferramentas de desenvolver do próprio navegador, acessadas através da tecla F12 do seu teclado. </li>
+            <li>A prova será composta por 4 desafios + o Desafio do CPF da P1(que não tira pontos)</li>
+            <li>Cada desafio será explicado em sua própria seção.</li>
+            <li>As Entradas(variáveis seus respectios valores) serão geradas pelo "Sistema". Você poderá consultá-las e manipulá-las pela console.</li>
+            <li>Está Liberado APENAS a Consulta do guia de referencia JS do <a href= "https://www.w3schools.com/js/">W3C Schools</a> e dos exercícios realizados em Sala de aula para auxiliar com a sintaxe dos comandos.</li>
+            <li>Para resolver cada desafio será necessário a criação de eventos e funções.</li>
+            <li>Salve os códigos utilziados para solução de cada desafio. Eles precisarão ser enviados ao final da prova para contabilização das notas. O arquivo em JS contendo todos os códigos deverão ser enviados pelo Classroom.</li>
+            <li>Vocês não precisam de sorte pois sei que estudaram :)! Só Vai</li></h3>
+        </ul>
+        <div id="m-inner">
+        </div>
+        <div id="questions_tab"> 
+            <!-- Tab links -->
+            <div class="tab">
+              <button class="tablinks" onclick="loadtab(event, 'D1')">Desafio 1</button>
+              <button class="tablinks" onclick="loadtab(event, 'D2')">Desafio 2</button>
+              <button class="tablinks" onclick="loadtab(event, 'D3')">Desafio 3</button>
+              <button class="tablinks" onclick="loadtab(event, 'D4')">Desafio 4</button>
+            </div>
+            
+            <!-- Tab content -->
+            <div id="D1" class="tabcontent">
+              <h3>Mudar Tema [Penalidade Max: -0,75]</h3>
+              <p>O conteúdo abaixo é uma representação de um protótipo de webage. Os botoes circulados em vermelho servem para alterar o tema do protótipo entre Light e Dark, porém não estão funcionando. Faça-os funcionar criando uma função chamda mudatema que aplica o tema adequado para cada botão.<br><b>Dica 1:</b> Todos os elementos deste protótipo possuem a mesma classe.<br><b>Dica 2:</b> (light e dark são classes do CSS e fazem referencia aos temas)<br><b>Dica 3:</b> Para alterar a classe de um elemento use o comando className. Ex elemento.className</p>
+              <div id="proto_body">
+                <button id="btn_light" onclick="mudatema('light')"></button> 
+                <button id="btn_dark" onclick="mudatema('dark')"></button>
+                <div id="proto_head" class="light">
+                  <div id="head_left"></div>
+                  <div id="head_center">SITE HEADER</div>
+                  <div id="head_right">
+                  </div>
+                </div>
+                <div id="proto_main" class="light">
+                  <input type="text"/>
+                  <button>buttom</button>
+                  <canvas></canvas>
+                </div>
+                <div id="proto_footer" class="light">
+                  RODAPÉ Todos os direitos reservados
+                </div>
+              </div>  
+            </div>
+            
+            <div id="D2" class="tabcontent">
+              <h3>Simulação de Cadastro [Penalidade Max: -1,5]</h3>
+              <p>Vamos simular a realização e visualização de cadastros. Para fazer um cadastro é necessário preenhcer os campos abaixo e clicar no botão <b>cadastrar</b> que chama uma função com mesmo nome e que salvará os dados em um objeto declarado <b>const cadastro</b>. Este objeto é um <b>vetor(Array)</b> de cadastros onde cada índice tem como valor os atributos "usuario", "data_nasc" e "telefone". Para visualizar os cadastros o botão <b>visualizar</b> chama uma outra função que deve mostrar na tag "span id=visualiza" os valores salvos na constante cadastro. <br><b>INFORMAÇÕES IMPORTANTES:</b><br>* Os valores só devem ser cadastrados se os campos não estiverem vazios<br>*O campo telefone deve permitir apenas números e deve ter o formato (XX)XXXXX-XXXX.<br>
+              Você precisará criar 1 função adicional para validar o campo telefone(<b>valida_tel</b>) a função está atreladas ao evento onkeypress da caixa de texto telefone.
+              <br>Ao finalizar um cadastro com sucesso, você pode chamar a função pre-existente <b>gera_cadastro()</b>, que cria um novo registro em branco e aumenta o tamanho do vetor em 1 automaticamente. Usar esta função é opcional.
+              <br>*Para mostrar os valores é preciso usar um for e ler todos os índices do vetor cadastro. A impressão na tela é muito similar ao que já fizemos no exercicio da tabuada, porém você precisa mostrar na tag span ao invés de utilizar o console.log. <b>DICA:</b> É possível variável acumuldora de textos.
+            </p>
+            <div id="cad_container">
+              <span>usuario</span>
+              <input id="usuario" type="text"/>
+              <span>data_nasc</span>
+              <input id="data" type="date">
+              <span>telefone</span>
+              <input id="telefone" type="text" onkeypress="valida_tel(event)">
+              <button id="btn_cadastro" onclick="cadastrar()">Cadastrar</button>
+              <button id="btn_cadastro" onclick="visualizar()">Visualizar</button><br><br>
+              <span id="visualiza"></span>
+            </div>
+        </div>
+        <div id="D3" class="tabcontent">
+          <h3>Tempo de Login [Penalidade Max: -0,75]</h3>
+          <p>A ideia desse desafio é reproduzir um timeout de login, ou seja quando o tempo chegar a 0 o usuario seria desconectado do sistema por inatividade. O temporizador mostrado abaixo está inativo, utilizando o recurso *setInterval* mostre a contagem regressiva em tempo real.<br>Não é obrigatório, mas caso precise você pode utilizar o botão para chamar sua função.</p>
+          <div class="temporizador">
+            <span id="minutos" class="temporizador">00</span><span id="segundos" class="temporizador">00</span>
+          </div>
+          <button class="gerar" onclick="chama_timer()">Opcional</button> 
+        </div> 
+        <div id="D4" class="tabcontent">
+          <h3>Valida CPF - [Recuperação Max: +1,25]</h3>
+          <p>Verifique se o CPF digitado na Caixa de Texto é válido ou não. Mostre o resultado na span com id=cpf.<br>
+          Para validar um CPF basta seguir a receita da Receita: <br>
+          <b>Passo 1:</b><br>
+          Invalide qualquer CPF composto por números repetidos em sequencia. (ex: 11111111111,22222222222,etc...)
+          <br><b>Passo 2:</b><br>
+          Se o passo anterior for validado, Multiplica-se os 9 primeiros dígitos pela sequência decrescente de números de 10 à 2, somando os resultados das multiplicações. Exemplo: n1*10 + n2*9 + n3*8+...n8*3 + n9*2. Pegue o resultado da soma e divida por 11 e guarde o resto dessa divisão. Agora subtraia 11 pelo valor do resto da divisão feita anteriormente e compare com o 10º digito do CPF. Se eles forem iguais avance para o próximo passo. Caso contrário invalide o CPF.
+          <b><br>Detalhe importante:</b> se o resto da divisão for menor que 2 não é necessário fazer a subtração, apenas considere que o valor do resto é igual 0 e faça a comparação com o 10º digito do CPF.<br>
+          <b>Passo 3:</b><br>
+          Repita o processo de soma e multiplicação anterior, porém utilize os 10 primeiros digitos e comece a multiplicação com 11. Ex: n1*11 + n2*10 + n3*9+...n9*3 + n10*2. Some o resultados das multiplicações, divida por 11, pegue o resto e compare com o 11º digito. Se forem iguais significa que o CPF é valido. Lembre-se de manter a mesma premissa de que se o resto for 2 vocês devem considerar o resto como 0.
+          </p>
+          <input id="cpf" maxlength=11 type="text" class="formata"><button id="validar" class="formata" onclick="validarcpf()">VALIDAR CPF</button><span id="cpf" class="formata">Aqui aparecerá se o CPF é válido ou não!</span><br>
+          <input id="exemplo" disabled type="text" class="formata"><button class="formata" onclick="geracpf(1)">CPF válido</button><button class="formata" onclick="geracpf(0)">CPF inválio</button>
+        </div>
+    </div>
+    <!-- FOOT -->
+    <div id="f-wrap">
+      
+    </div>
+    
+</body>
+<script src="p2.js"></script>
+</html>
